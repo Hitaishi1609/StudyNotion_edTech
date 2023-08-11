@@ -31,7 +31,7 @@ exports.createSection = async (req, res) => {
       .populate({
         path: "courseContent",
         populate: {
-          path: "SubSection",
+          path: "subSection",
         },
       })
       .exec()
@@ -65,7 +65,7 @@ exports.updateSection = async (req, res) => {
       .populate({
         path: "courseContent",
         populate: {
-          path: "SubSection",
+          path: "subSection",
         },
       })
       .exec()
@@ -112,7 +112,7 @@ exports.deleteSection = async (req, res) => {
       .populate({
         path: "courseContent",
         populate: {
-          path: "SubSection",
+          path: "subSection",
         },
       })
       .exec()

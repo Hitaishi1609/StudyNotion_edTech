@@ -62,7 +62,7 @@ function CourseDetails() {
     setIsActive(
       !isActive.includes(id)
         ? isActive.concat([id])
-        : isActive.filter((e) => e != id)
+        : isActive.filter((e) => e !== id)
     )
   }
 
@@ -155,7 +155,7 @@ function CourseDetails() {
                 <span>{`${studentsEnroled.length} students enrolled`}</span>
               </div>
               <div>
-                <p className="">
+                <p>
                   Created By {`${instructor.firstName} ${instructor.lastName}`}
                 </p>
               </div>

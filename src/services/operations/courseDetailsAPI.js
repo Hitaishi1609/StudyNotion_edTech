@@ -132,6 +132,7 @@ export const editCourseDetails = async (data, token) => {
 export const createSection = async (data, token) => {
   let result = null
   const toastId = toast.loading("Loading...")
+  
   try {
     const response = await apiConnector("POST", CREATE_SECTION_API, data, {
       Authorization: `Bearer ${token}`,

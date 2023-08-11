@@ -36,6 +36,7 @@ export default function CourseInformationForm() {
     const getCategories = async () => {
       setLoading(true)
       const categories = await fetchCourseCategories()
+      console.log("CATEGORIES>>>>>>>>>>>..........", categories)
       if (categories.length > 0) {
         // console.log("categories", categories)
         setCourseCategories(categories)
@@ -43,6 +44,7 @@ export default function CourseInformationForm() {
       setLoading(false)
     }
     // if form is in edit mode
+    console.log("COURSE IN EDIT>>>>>>>>>>........", course)
     if (editCourse) {
       // console.log("data populated", editCourse)
       setValue("courseTitle", course.courseName)
@@ -50,6 +52,7 @@ export default function CourseInformationForm() {
       setValue("coursePrice", course.price)
       setValue("courseTags", course.tag)
       setValue("courseBenefits", course.whatYouWillLearn)
+      console.log("COURSE CATEGORY>>>>>>>>>>", course.category)
       setValue("courseCategory", course.category)
       setValue("courseRequirements", course.instructions)
       setValue("courseImage", course.thumbnail)
@@ -77,7 +80,8 @@ export default function CourseInformationForm() {
     }
     return false
   }
-
+  console.log("COURSE>CATEGORY>NAMe", course.category)
+  console.log("CATEGORIES>>>>>>", courseCategories)
   //   handle next button click
   const onSubmit = async (data) => {
     // console.log(data)
@@ -221,13 +225,14 @@ export default function CourseInformationForm() {
         )}
       </div>
       {/* Course Category */}
+
       <div className="flex flex-col space-y-2">
         <label className="text-sm text-richblack-5" htmlFor="courseCategory">
           Course Category <sup className="text-pink-200">*</sup>
         </label>
         <select
           {...register("courseCategory", { required: true })}
-          defaultValue=""
+          value={course.category._id}
           id="courseCategory"
           className="form-style w-full"
         >
